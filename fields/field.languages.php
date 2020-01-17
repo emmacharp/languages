@@ -163,12 +163,6 @@
 			if ($this->get('required') != 'yes') {
 				$label->appendChild(new XMLElement('i', __('Optional')));
 			}
-			$label->appendChild(
-				Widget::Select($fieldname, $options, ($this->get('allow_multiple_selection') == 'yes' ? array(
-					'multiple' => 'multiple'
-				) : null
-				))
-			);
 
 			// Error
 			if (!is_null($flagWithError)) {
@@ -177,6 +171,13 @@
 			else {
 				$wrapper->appendChild($label);
 			}
+
+			$wrapper->appendChild(
+				Widget::Select($fieldname, $options, ($this->get('allow_multiple_selection') == 'yes' ? array(
+					'multiple' => 'multiple'
+				) : null
+				))
+			);
 		}
 
 
